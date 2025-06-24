@@ -2,7 +2,6 @@ package org.body.ecommerce.customer;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +16,7 @@ public class CustomerController {
     @PostMapping
     public ResponseEntity<String> createCustomer(@RequestBody @Valid CustomerRequest customerRequest){
         return ResponseEntity.ok(service.createCustomer(customerRequest));
-    };
+    }
 
     @PostMapping
     public ResponseEntity<Void> updateCustomer(@RequestBody @Valid CustomerRequest request){
@@ -41,7 +40,7 @@ public class CustomerController {
 
     @DeleteMapping("/{customer-id}")
     public ResponseEntity<Void> deleteCustomer(@PathVariable("customer-id") String id) {
-        service.deletecustomer(id);
+        service.deleteCustomer(id);
        return ResponseEntity.accepted().build();
     }
 }
